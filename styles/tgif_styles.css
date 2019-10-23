@@ -1,0 +1,30 @@
+.spinner-border {
+    width: 6rem;
+    height: 6rem;
+    border: 1em solid red;
+    border-top-color: red;
+    border-top-style: solid;
+    border-top-width: 1em;
+    border-right-color: transparent;
+    border-right-style: solid;
+    border-right-width: 1em;
+    border-bottom-color: red;
+    border-bottom-style: solid;
+    border-bottom-width: 1em;
+    border-left-color: red;
+    border-left-style: solid;
+    border-left-width: 1em;
+    border-image-source: initial;
+    border-image-slice: initial;
+    border-image-width: initial;
+    border-image-outset: initial;
+    border-image-repeat: initial;
+}
+
+input[type=checkbox] {
+    transform: scale(2);
+}
+
+table {
+    display: "none";
+}
