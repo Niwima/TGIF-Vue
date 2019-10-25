@@ -30,9 +30,7 @@ const vueApp = new Vue({
         leastLoyal: 0,
         averageLoyalty: 0,
         stateList: [],
-
     },
-
     methods: {
         //master function that makes AJAX call based on the location and then calls fillData 
         setupPage: function () {
@@ -67,10 +65,7 @@ const vueApp = new Vue({
                         vueApp.killSpinner();
                         vueApp.revealTables();
                     })
-
-
             } else
-
             if (window.location.href.includes('senate')) {
                 fetch(senateUrl, {
                         method: "GET",
@@ -155,9 +150,9 @@ const vueApp = new Vue({
                 chamberMembers[i].party_votes = Math.round(vueApp.chamberMembers[i].total_votes * vueApp.chamberMembers[i].votes_with_party_pct / 100) || 0;
             }
         },
-        givePartyClass: function (chamberMembers){
+        givePartyClass: function (chamberMembers) {
             for (let i = 0; i < chamberMembers.length; i++) {
-                chamberMembers[i].party_class = "party"+chamberMembers[i].party;
+                chamberMembers[i].party_class = "party" + chamberMembers[i].party;
             }
         },
         //subfunction that fills all of the attributes within the parties
@@ -236,12 +231,13 @@ const vueApp = new Vue({
             document.getElementById("spinner-container").style.display = "none";
         },
         reviveSpinner: function () {
+            if (window.location.href.includes('home') === false){
             document.getElementById("spinner").style.display = "block";
             document.getElementById("spinner-container").classList.add("d-flex");
             document.getElementById("spinner-container").style.display = "block";
+        }
         },
         //tableFilters master function
-
         tableFilters: function (tableID) {
             let table = document.getElementById(tableID);
             let tRows = table.getElementsByTagName('tr');
@@ -277,7 +273,6 @@ const vueApp = new Vue({
                 vueApp.filterByPartyAndState(tRows, selectedParties, selectedStates);
             });
         },
-
         //filterByPartyAndState subfunction
         filterByPartyAndState: function (tableRows, parties, states) {
             let rowParty;
@@ -316,8 +311,6 @@ const vueApp = new Vue({
                 tableToggle.style.display = "";
             }
         },
-
-
         //button for changing ajax call to another congress number
         changeCongress: function () {
             let congressInput
@@ -331,7 +324,6 @@ const vueApp = new Vue({
                     vueApp.setupPage();
                 }
             })
-
         },
         sideBySideTableToggle: function () {
             let frontTable = document.getElementById("front-table");
@@ -363,9 +355,6 @@ const vueApp = new Vue({
                 tableTab2.classList.add("active");
             })
         },
-
-
-
     },
     //before creation, hide tables so that the spinner and table don't coexist
     beforeCreate() {
@@ -395,9 +384,8 @@ const vueApp = new Vue({
         } else
         if (window.location.href.includes('house_data')) {
             this.tableFilters('chamber-data-house');
-        } else if (window.location.href.includes('home') === false)
+        } else if (window.location.href.includes('home') === false){
             this.sideBySideTableToggle();
+        }
     },
-
-
 })

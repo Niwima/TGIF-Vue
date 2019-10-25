@@ -140,7 +140,7 @@
                 <td class='text-center'>{{repParty.partyLoyalty}}%</td>
               </tr>
               <tr class="partyI">
-                <td> {{indParty.name}}</td>
+                <td>{{indParty.name}}</td>
                 <td class='text-center'>{{indParty.numOfMembers}}</td>
                 <td class='text-center'>{{indParty.partyLoyalty}}%</td>
               </tr>
@@ -186,7 +186,7 @@
               <tr>
             </thead>
             <tbody>
-              <tr v-for='member in bestAttendance' v-bind:class = "member.party_class">
+              <tr v-for='member in bestAttendance' v-bind:class="member.party_class">
                 <td><a v-bind:href="member.url">{{member.full_name}}</a></td>
                 <td class='text-center'>{{member.missed_votes}}</td>
                 <td class='text-center'>{{member.missed_votes_pct}}%</td>
@@ -209,7 +209,7 @@
               <tr>
             </thead>
             <tbody>
-              <tr v-for='member in worstAttendance' v-bind:class = "member.party_class">
+              <tr v-for='member in worstAttendance' v-bind:class="member.party_class">
                 <td><a v-bind:href="member.url">{{member.full_name}}</a></td>
                 <td class='text-center'>{{member.missed_votes}}</td>
                 <td class='text-center'>{{member.missed_votes_pct}}%</td>

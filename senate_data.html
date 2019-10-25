@@ -173,7 +173,7 @@
             </thead>
 
             <tbody>
-              <tr v-for="member in chamberMembers" v-bind:class = "member.party_class">
+              <tr v-for="member in chamberMembers" v-bind:class="member.party_class">
                 <td> <a v-bind:href="member.url">{{member.full_name}}</a></td>
                 <td class='text-center' v-bind:value="member.party">{{member.party}}</td>
                 <td class='text-center' v-bind:value='member.state'> {{member.state}} </td>
