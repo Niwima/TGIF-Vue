@@ -226,16 +226,18 @@ const vueApp = new Vue({
             return bottom10Pct;
         },
         killSpinner: function () {
-            document.getElementById("spinner").style.display = "none";
-            document.getElementById("spinner-container").classList.remove("d-flex");
-            document.getElementById("spinner-container").style.display = "none";
+            if (window.location.href.includes('home') === false) {
+                document.getElementById("spinner").style.display = "none";
+                document.getElementById("spinner-container").classList.remove("d-flex");
+                document.getElementById("spinner-container").style.display = "none";
+            }
         },
         reviveSpinner: function () {
-            if (window.location.href.includes('home') === false){
-            document.getElementById("spinner").style.display = "block";
-            document.getElementById("spinner-container").classList.add("d-flex");
-            document.getElementById("spinner-container").style.display = "block";
-        }
+            if (window.location.href.includes('home') === false) {
+                document.getElementById("spinner").style.display = "block";
+                document.getElementById("spinner-container").classList.add("d-flex");
+                document.getElementById("spinner-container").style.display = "block";
+            }
         },
         //tableFilters master function
         tableFilters: function (tableID) {
@@ -374,7 +376,9 @@ const vueApp = new Vue({
 
     },
     mounted() {
-        this.changeCongress();
+        if (window.location.href.includes('home') === false) {
+            this.changeCongress();
+        }
     },
     //once all data is fetched and populated and set up table filters
     updated() {
@@ -384,7 +388,7 @@ const vueApp = new Vue({
         } else
         if (window.location.href.includes('house_data')) {
             this.tableFilters('chamber-data-house');
-        } else if (window.location.href.includes('home') === false){
+        } else if (window.location.href.includes('home') === false) {
             this.sideBySideTableToggle();
         }
     },
