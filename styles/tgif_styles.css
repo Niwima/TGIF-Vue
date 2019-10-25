@@ -67,3 +67,109 @@ input[type=checkbox] {
     height: 500px;
     overflow-y: auto;
 }
+
+.partyD:hover,
+.partyD:hover a:link,
+.partyD:hover a,
+.partyD:hover a:active,
+.partyD:hover a:hover,
+.partyD:hover a:visited {
+    background-color: rgb(0, 40, 104);
+    color: white;
+}
+
+.partyR:hover,
+.partyR:hover a:link,
+.partyR:hover a,
+.partyR:hover a:active,
+.partyR:hover a:hover,
+.partyR:hover a:visited {
+    background-color: rgb(191, 10, 48);
+    color: white;
+}
+
+.partyI:hover,
+.partyI:hover a:link,
+.partyI:hover a,
+.partyI:hover a:active,
+.partyI:hover a:hover,
+.partyI:hover a:visited,
+.partyID:hover,
+.partyID:hover a:link,
+.partyID:hover a,
+.partyID:hover a:active,
+.partyID:hover a:hover,
+.partyID:hover a:visited {
+    background-color: rgb(114, 114, 114);
+    color: white;
+}
+
+
+
+
+.linkdin-footer {
+    position: fixed;
+    bottom: 0px;
+    right: 0px;
+    display: flex;
+    justify-content: flex-end;
+    width: 100%;
+    z-index: 1000;
+}
+
+.footer_content {
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    border-radius: 30px 0px 0px 0px;
+    color: palegoldenrod;
+    background-color: slategray;
+    height: 70px;
+    width: 70px;
+}
+
+.nm_logo {
+    border: rgb(0, 40, 104) solid 3px;
+    color: transparent;
+    border-radius: 50%;
+    height: 55px;
+    width: 55px;
+    background-image: url("../assets/images/linkedin_logo.png");
+    background-position: center center;
+    background-size: cover;
+}
+
+.footer_content:hover {
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    border-radius: 50px 0px 0px 0px;
+    background-color: slategray;
+    height: 120px;
+    width: 120px;
+}
+
+
+.nm_logo:hover {
+    text-align: center;
+    color: white;
+    font-size: 15px;
+    background-image: none;
+    background-color: rgb(0, 119, 181);
+    height: 100px;
+    width: 100px;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-content: center;
+
+}
+
+.nm {
+    font-weight: bold;
+}
+
+#linkdin {
+    text-decoration: none;
+}

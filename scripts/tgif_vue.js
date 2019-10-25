@@ -100,6 +100,7 @@ const vueApp = new Vue({
             vueApp.chamberMembers = chamberData.results[0].members;
             vueApp.giveFullNames(vueApp.chamberMembers);
             vueApp.givePartyVotes(vueApp.chamberMembers);
+            vueApp.givePartyClass(vueApp.chamberMembers);
             vueApp.totalMembers = vueApp.chamberMembers.length;
             vueApp.fillParties()
             vueApp.averageLoyalty = vueApp.calculateLoyalty(vueApp.chamberMembers);
@@ -152,6 +153,11 @@ const vueApp = new Vue({
         givePartyVotes: function (chamberMembers) {
             for (let i = 0; i < chamberMembers.length; i++) {
                 chamberMembers[i].party_votes = Math.round(vueApp.chamberMembers[i].total_votes * vueApp.chamberMembers[i].votes_with_party_pct / 100) || 0;
+            }
+        },
+        givePartyClass: function (chamberMembers){
+            for (let i = 0; i < chamberMembers.length; i++) {
+                chamberMembers[i].party_class = "party"+chamberMembers[i].party;
             }
         },
         //subfunction that fills all of the attributes within the parties

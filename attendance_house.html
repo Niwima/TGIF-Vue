@@ -119,7 +119,7 @@
         </div>
 
         <div class=" col-md-12 col-sm-12 col-lg-6">
-          <table class='table table-lg table-hover table-responsive' id='chamber-glance-house'>
+          <table class='table table-lg  table-responsive' id='chamber-glance-house'>
             <caption style='caption-side: top;'> The {{congressNumber}} {{chamberName}} at a Glance</caption>
             <thead>
               <tr>
@@ -129,17 +129,17 @@
               <tr>
             </thead>
             <tbody>
-              <tr>
+              <tr class="partyD">
                 <td>{{demParty.name}}</td>
                 <td class='text-center'>{{demParty.numOfMembers}}</td>
                 <td class='text-center'>{{demParty.partyLoyalty}}%</td>
               </tr>
-              <tr>
+              <tr class="partyR">
                 <td>{{repParty.name}}</td>
                 <td class='text-center'>{{repParty.numOfMembers}}</td>
                 <td class='text-center'>{{repParty.partyLoyalty}}%</td>
               </tr>
-              <tr>
+              <tr class="partyI">
                 <td> {{indParty.name}}</td>
                 <td class='text-center'>{{indParty.numOfMembers}}</td>
                 <td class='text-center'>{{indParty.partyLoyalty}}%</td>
@@ -172,7 +172,7 @@
 
       <div class=" row scrolling-table-container">
         <div id="front-table" class="col-lg-6 col-md-12 col-sm-12 d-lg-table d-xl-table">
-          <table class=' table table-sm table-hover table-responsive' id='most-engaged-house'>
+          <table class=' table table-sm  table-responsive' id='most-engaged-house'>
             <thead>
 
               <tr>
@@ -186,7 +186,7 @@
               <tr>
             </thead>
             <tbody>
-              <tr v-for='member in bestAttendance'>
+              <tr v-for='member in bestAttendance' v-bind:class = "member.party_class">
                 <td><a v-bind:href="member.url">{{member.full_name}}</a></td>
                 <td class='text-center'>{{member.missed_votes}}</td>
                 <td class='text-center'>{{member.missed_votes_pct}}%</td>
@@ -195,7 +195,7 @@
           </table>
         </div>
         <div id="back-table" class="col-lg-6 col-md-12 col-sm-12  d-lg-table d-xl-table d-md-none d-sm-none d-none">
-          <table class=' table table-sm table-hover table-responsive' id='least-engaged-house'>
+          <table class=' table table-sm  table-responsive' id='least-engaged-house'>
             <thead>
 
               <tr>
@@ -209,7 +209,7 @@
               <tr>
             </thead>
             <tbody>
-              <tr v-for='member in worstAttendance'>
+              <tr v-for='member in worstAttendance' v-bind:class = "member.party_class">
                 <td><a v-bind:href="member.url">{{member.full_name}}</a></td>
                 <td class='text-center'>{{member.missed_votes}}</td>
                 <td class='text-center'>{{member.missed_votes_pct}}%</td>
@@ -228,6 +228,20 @@
         <footer class="page-footer font-small bg-american">
           <div class="footer-copyright text-center text-white py-3">© 2016 TGIF | All Rights Reserved</div>
         </footer>
+        <div class="linkdin-footer">
+          <a id="linkdin" href="https://www.linkedin.com/in/nikolas-mateer-008b07179">
+            <div class="footer_content">
+
+              <div class="nm_logo">
+                <div>Website by</div>
+                <div class="nm">Nikolas</div>
+                <div class="nm">Mateer</div>
+
+              </div>
+
+            </div>
+          </a>
+        </div>
       </div>
     </div>
   </div>
