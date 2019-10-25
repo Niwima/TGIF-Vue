@@ -30,6 +30,7 @@ const vueApp = new Vue({
         leastLoyal: 0,
         averageLoyalty: 0,
         stateList: [],
+        congressYears: "",
     },
     methods: {
         //master function that makes AJAX call based on the location and then calls fillData 
@@ -42,6 +43,7 @@ const vueApp = new Vue({
             } else {
                 congress = sessionStorage.getItem('congressInput');
             }
+            this.congressYears = (1787 + (congress*2))+" to "+(1788 + (congress*2));
             this.congressNumber = this.addOrdinalSuffix(congress);
             let senateUrl = "https://api.propublica.org/congress/v1/" + congress + "/senate/members.json";
             let houseUrl = "https://api.propublica.org/congress/v1/" + congress + "/house/members.json";

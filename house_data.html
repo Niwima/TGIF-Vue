@@ -21,11 +21,12 @@
 
           <div class="input-group">
             <div class="input-group-prepend">
-              <span class="input-group-text" id="basic-addon1">Congress</span>
+              <span class="input-group-text" id="basic-addon1">The</span>
             </div>
             <input id="congress-input" type="number" class="form-control" v-bind:placeholder="congressNumber"
               aria-label="congress-number" min="102" max="116" aria-describedby="basic-addon1">
             <div class="input-group-append">
+                <span class="input-group-text">Congress ({{congressYears}})</span>
               <button id="congress-input-button" type="button" class="btn btn-secondary">Change</button>
             </div>
           </div>
