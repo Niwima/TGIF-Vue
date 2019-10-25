@@ -1,17 +1,17 @@
 .spinner-border {
     width: 6rem;
     height: 6rem;
-    border: 1em solid red;
-    border-top-color: red;
+    border: 1em solid rgb(191, 10, 48);
+    border-top-color: rgb(191, 10, 48);
     border-top-style: solid;
     border-top-width: 1em;
     border-right-color: transparent;
     border-right-style: solid;
     border-right-width: 1em;
-    border-bottom-color: red;
+    border-bottom-color: rgb(191, 10, 48);
     border-bottom-style: solid;
     border-bottom-width: 1em;
-    border-left-color: red;
+    border-left-color: rgb(191, 10, 48);
     border-left-style: solid;
     border-left-width: 1em;
     border-image-source: initial;
@@ -21,10 +21,49 @@
     border-image-repeat: initial;
 }
 
+.bg-american {
+    background-color: rgb(0, 40, 104);
+}
+
+caption {
+    font-weight: bold;
+    font-size: 1.05em;
+    color: rgb(191, 10, 48);
+}
+
+.table-title {
+    font-weight: bold;
+    font-size: 1.05em;
+    color: rgb(191, 10, 48);
+}
+
+#table-tab-1,
+#table-tab-2 {
+    font-weight: bold;
+    font-size: 1.05em;
+    color: rgb(0, 40, 104);
+}
+
+#table-tab-1.active,
+#table-tab-2.active {
+    color: rgb(191, 10, 48);
+}
+
+input[type=number] {
+    min-width: 3.5em;
+}
+
 input[type=checkbox] {
     transform: scale(2);
 }
 
-table {
-    display: "none";
+.input-group {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+}
+
+.scrolling-table-container {
+    height: 500px;
+    overflow-y: auto;
 }

@@ -17,7 +17,20 @@
     <header>
       <div class="row">
         <div class="col-sm-3"> <img class="img-fluid" src="./assets/images/LOGOTGIF.jpg" alt="TGIF Logo"></div>
-        <div class="col-sm-6"></div>
+        <div class="col-sm-6 d-flex align-items-center justify-content-center">
+
+          <div class="input-group">
+            <div class="input-group-prepend">
+              <span class="input-group-text" id="basic-addon1">Congress</span>
+            </div>
+            <input id="congress-input" type="number" class="form-control" v-bind:placeholder="congressNumber"
+              aria-label="congress-number" min="102" max="116" aria-describedby="basic-addon1">
+            <div class="input-group-append">
+              <button id="congress-input-button" type="button" class="btn btn-secondary">Change</button>
+            </div>
+          </div>
+
+        </div>
         <div class="col-sm-3 text-right d-flex align-items-center justify-content-end"><a
             href="mailto:info@tgif.net">info@tgif.net</a>
         </div>
@@ -27,7 +40,7 @@
 
     <div class="sticky-top row">
       <div class="col-sm-12">
-        <nav class="navbar navbar-expand-md navbar-dark bg-primary">
+        <nav class="navbar navbar-expand-md navbar-dark bg-american">
           <a class="navbar-brand" href="#">TGIF</a>
           <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown"
             aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
@@ -38,10 +51,11 @@
               <li class="nav-item">
                 <a class="nav-link" href="./tgif_home.html">Home</a>
               </li>
+
               <li class="nav-item dropdown">
                 <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownCongressLink" data-toggle="dropdown"
                   aria-haspopup="true" aria-expanded="false">
-                  Congress 113
+                  {{congressNumber}} Congress
                 </a>
                 <div class="dropdown-menu" aria-labelledby="navbarDropdownCongressLink">
                   <a class="dropdown-item active" href="./senate_data.html">Senate<span
@@ -97,8 +111,13 @@
         House.
       </p>
 
+      <hr>
+      </hr>
+
+
       <div class="row d-flex justify-content-start">
         <div class="p-2 font-weight-bold">
+
           Filter By Party:
         </div>
         <div class="p-2 text-center">
@@ -128,18 +147,19 @@
 
 
         </div>
-
-
-
       </div>
 
 
-      <div class="row">
-        <div class="col-12 d-flex flex-wrap align-items-center justify-content-center">
+
+      <div class="row scrolling-table-container">
+
+        <div id="spinner-container" class="col-12 d-flex align-items-center justify-content-center">
           <div id="spinner" class="spinner-border text-primary" role="status">
           </div>
+        </div>
 
-          <table class=' table table-hover' id="chamber-data-senate">
+        <div class="col-12 d-flex align-items-start justify-content-start">
+          <table class='table table-hover' id="chamber-data-senate">
             <caption style='caption-side: top;'>{{congressNumber}} {{chamberName}} of the United States of America
             </caption>
             <thead>
@@ -151,6 +171,7 @@
                 <th class='text-center'>Votes With Party</th>
               </tr>
             </thead>
+
             <tbody>
               <tr v-for="member in chamberMembers">
                 <td> <a v-bind:href="member.url">{{member.full_name}}</a></td>
@@ -160,6 +181,7 @@
                 <td class='text-center'>{{member.votes_with_party_pct}}%</td>
               </tr>
             </tbody>
+
           </table>
 
         </div>
@@ -171,7 +193,7 @@
 
     <div class="row">
       <div class="col-sm">
-        <footer class="page-footer font-small bg-primary">
+        <footer class="page-footer font-small bg-american">
           <div class="footer-copyright text-center text-white py-3">© 2016 TGIF | All Rights Reserved</div>
         </footer>
       </div>

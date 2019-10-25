@@ -17,7 +17,20 @@
     <header>
       <div class="row">
         <div class="col-sm-3"> <img class="img-fluid" src="./assets/images/LOGOTGIF.jpg" alt="TGIF Logo"></div>
-        <div class="col-sm-6"></div>
+        <div class="col-sm-6 d-flex align-items-center justify-content-center">
+
+          <div class="input-group">
+            <div class="input-group-prepend">
+              <span class="input-group-text" id="basic-addon1">Congress</span>
+            </div>
+            <input id="congress-input" type="number" class="form-control" v-bind:placeholder="congressNumber"
+              aria-label="congress-number" min="102" max="116" aria-describedby="basic-addon1">
+            <div class="input-group-append">
+              <button id="congress-input-button" type="button" class="btn btn-secondary">Change</button>
+            </div>
+          </div>
+
+        </div>
         <div class="col-sm-3 text-right d-flex align-items-center justify-content-end"><a
             href="mailto:info@tgif.net">info@tgif.net</a>
         </div>
@@ -27,7 +40,7 @@
 
     <div class="sticky-top row">
       <div class="col-sm-12">
-        <nav class="navbar navbar-expand-md navbar-dark bg-primary">
+        <nav class="navbar navbar-expand-md navbar-dark bg-american">
           <a class="navbar-brand" href="#">TGIF</a>
           <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown"
             aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
@@ -38,10 +51,11 @@
               <li class="nav-item">
                 <a class="nav-link" href="./tgif_home.html">Home</a>
               </li>
+
               <li class="nav-item dropdown">
                 <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownCongressLink" data-toggle="dropdown"
                   aria-haspopup="true" aria-expanded="false">
-                  Congress 113
+                  {{congressNumber}} Congress
                 </a>
                 <div class="dropdown-menu" aria-labelledby="navbarDropdownCongressLink">
                   <a class="dropdown-item" href="./senate_data.html">Senate<span class="sr-only">(current)</span></a>
@@ -70,114 +84,143 @@
                   <a class="dropdown-item active" href="./loyalty_house.html">House</a>
                 </div>
               </li>
+
+
+
             </ul>
           </div>
         </nav>
       </div>
     </div>
 
-    <div class="row">
+    <div class="container-fluid">
 
-      <div class="col-md-6">
-        <h2>Party Loyalty</h2>
-        <p>Those who consider themselves to be strong partisans, strong Democrats and strong Republicans respectively,
-          tend to be the most faithful in voting for their party's nominee for office and legislation that backs their
-          party's agenda. </p>
-      </div>
+      <div class="row">
 
-      <div class="col-md-6 d-flex flex-wrap align-items-center justify-content-center">
-        <div id="spinner" class="spinner-border text-primary" role="status">
+        <div class="col-lg-6 col-md-12 col-sm-12">
+          <h2>Party Loyalty</h2>
+          <p>Those who consider themselves to be strong partisans, strong Democrats and strong Republicans respectively,
+            tend to be the most faithful in voting for their party's nominee for office and legislation that backs their
+            party's agenda. </p>
         </div>
-        <table class=' table table-hover table-responsive' id='chamber-glance-house'>
-          <caption style='caption-side: top;'> The {{congressNumber}} {{chamberName}} at a Glance</caption>
-          <thead>
-            <tr>
-              <th>Party</th>
-              <th class='text-center'>Number of Members</th>
-              <th class='text-center'>Party Loyalty</th>
-            <tr>
-          </thead>
-          <tbody>
-            <tr>
-              <td>{{demParty.name}}</td>
-              <td class='text-center'>{{demParty.numOfMembers}}</td>
-              <td class='text-center'>{{demParty.partyLoyalty}}%</td>
-            </tr>
-            <tr>
-              <td>{{repParty.name}}</td>
-              <td class='text-center'>{{repParty.numOfMembers}}</td>
-              <td class='text-center'>{{repParty.partyLoyalty}}%</td>
-            </tr>
-            <tr>
-              <td> {{indParty.name}}</td>
-              <td class='text-center'>{{indParty.numOfMembers}}</td>
-              <td class='text-center'>{{repParty.partyLoyalty}}%</td>
-            </tr>
-            <tr>
-              <td>Total</td>
-              <td class='text-center'>{{totalMembers}}</td>
-              <td class='text-center'>{{averageLoyalty}}%</td>
-            </tr>
-          </tbody>
-        </table>
+
+
+
+
+
+        <div id="spinner-container"
+          class="col-lg-6 col-md-12 col-sm-12 d-flex flex-wrap align-items-center justify-content-center">
+          <div id="spinner" class="spinner-border text-primary" role="status">
+          </div>
+        </div>
+
+        <div class="col-md-12 col-sm-12 col-lg-6">
+          <table class='table table-lg table-hover table-responsive' id='chamber-glance-house'>
+            <caption style='caption-side: top;'> The {{congressNumber}} {{chamberName}} at a Glance</caption>
+            <thead>
+              <tr>
+                <th>Party</th>
+                <th class='text-center'>Members</th>
+                <th class='text-center'>Loyalty</th>
+              <tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>{{demParty.name}}</td>
+                <td class='text-center'>{{demParty.numOfMembers}}</td>
+                <td class='text-center'>{{demParty.partyLoyalty}}%</td>
+              </tr>
+              <tr>
+                <td>{{repParty.name}}</td>
+                <td class='text-center'>{{repParty.numOfMembers}}</td>
+                <td class='text-center'>{{repParty.partyLoyalty}}%</td>
+              </tr>
+              <tr>
+                <td> {{indParty.name}}</td>
+                <td class='text-center'>{{indParty.numOfMembers}}</td>
+                <td class='text-center'>{{indParty.partyLoyalty}}%</td>
+              </tr>
+              <tr>
+                <td>Total</td>
+                <td class='text-center'>{{totalMembers}}</td>
+                <td class='text-center'>{{averageLoyalty}}%</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+
+      <hr>
+      </hr>
+
+      <ul id="table-toggle-ul" class="nav nav-tabs d-lg-none">
+        <li class="nav-item">
+          <a id="table-tab-1" class="toggle-table-display nav-link active">Most Loyal</a>
+        </li>
+        <li class="nav-item">
+          <a id="table-tab-2" class="toggle-table-display nav-link">Least Loyal</a>
+        </li>
+      </ul>
+
+      <div class="row scrolling-table-container">
+        <div id="front-table" class="col-lg-6 col-md-12 col-sm-12 d-xl-table d-lg-table">
+          <table class='table table-sm table-hover table-responsive' id='most-loyal-house'>
+            <thead>
+
+              <tr>
+                <td class="table-title d-none d-sm-none d-md-none d-lg-table-row d-xl-table-row"> Most Loyal</td>
+              </tr>
+
+              <tr>
+                <th>Name</th>
+                <th class='text-center'>Party Votes</th>
+                <th class='text-center'>Loyalty</th>
+              <tr>
+            </thead>
+            <tbody>
+              <tr v-for='member in mostLoyal'>
+                <td><a v-bind:href="member.url">{{member.full_name}}</a></td>
+                <td class='text-center'>{{member.party_votes}}</td>
+                <td class='text-center'>{{member.votes_with_party_pct}}%</td>
+              </tr>
+            </tbody>
+          </table>
+
+        </div>
+        <div id="back-table" class="col-lg-6 col-md-12 col-sm-12 d-xl-table d-lg-table d-md-none d-sm-none d-none">
+
+          <table class='table table-sm table-hover table-responsive' id='least-loyal-house'>
+            <thead>
+
+              <tr>
+                <td class="table-title d-none d-sm-none d-md-none d-lg-table-row d-xl-table-row"> Least Loyal </td>
+              </tr>
+
+              <tr>
+                <th>Name</th>
+                <th class='text-center'>Party Votes</th>
+                <th class='text-center'>Loyalty</th>
+              <tr>
+            </thead>
+            <tbody>
+              <tr v-for='member in leastLoyal'>
+                <td><a v-bind:href="member.url">{{member.full_name}}</a></td>
+                <td class='text-center'>{{member.party_votes}}</td>
+                <td class='text-center'>{{member.votes_with_party_pct}}%</td>
+              </tr>
+            </tbody>
+          </table>
+
+
+        </div>
       </div>
 
     </div>
-
-
-
-    <div class="row">
-      <div class="col-lg-6">
-
-
-        <table class=' table table-sm table-hover table-responsive' id='most-loyal-house'>
-          <caption style='caption-side: top;'> Most Loyal </caption>
-          <thead>
-            <tr>
-              <th>Name</th>
-              <th class='text-center'>Party Votes</th>
-              <th class='text-center'>Party Loyalty</th>
-            <tr>
-          </thead>
-          <tbody>
-            <tr v-for='member in mostLoyal'>
-              <td><a v-bind:href="member.url">{{member.full_name}}</a></td>
-              <td class='text-center'>{{member.party_votes}}</td>
-              <td class='text-center'>{{member.votes_with_party_pct}}%</td>
-            </tr>
-          </tbody>
-        </table>
-
-
-      </div>
-      <div class="col-lg-6">
-
-        <table class=' table table-sm table-hover table-responsive' id='least-loyal-house'>
-          <caption style='caption-side: top;'> Least Loyal </caption>
-          <thead>
-            <tr>
-              <th>Name</th>
-              <th class='text-center'>Party Votes</th>
-              <th class='text-center'>Party Loyalty</th>
-            <tr>
-          </thead>
-          <tbody>
-            <tr v-for='member in leastLoyal'>
-              <td><a v-bind:href="member.url">{{member.full_name}}</a></td>
-              <td class='text-center'>{{member.party_votes}}</td>
-              <td class='text-center'>{{member.votes_with_party_pct}}%</td>
-            </tr>
-          </tbody>
-        </table>
-
-
-      </div>
-    </div>
-
 
     <div class="row">
       <div class="col-sm">
-        <footer class="page-footer font-small bg-primary">
+        <footer class="page-footer font-small bg-american">
           <div class="footer-copyright text-center text-white py-3">© 2016 TGIF | All Rights Reserved</div>
         </footer>
       </div>
