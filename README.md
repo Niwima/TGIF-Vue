@@ -1,2 +1,2 @@
 # TGIF-Vue
-My TGIF project for Ubiqum, refactored to use Vue.js instead of raw JavaScript.
+TGIF Website: a website about the US government using real information from ProPublica's API which is dynamically displayed, Also uses algorithms to sort and filter the displayed data. Initially built with HTML5, Bootstra, CSS3, and JavaScript and later refactored into Vue.js
